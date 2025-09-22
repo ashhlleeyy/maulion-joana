@@ -4,158 +4,168 @@
   <meta charset="UTF-8">
   <title>Register</title>
   <style>
+    /* Base styles */
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+      font-family: 'Inter', Arial, sans-serif;
+    }
+
     body {
-      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-      background: linear-gradient(135deg, #e9eff5, #f6f9fc);
+      background: linear-gradient(135deg, #1e3c72, #2a5298);
       display: flex;
       justify-content: center;
       align-items: center;
       height: 100vh;
-      margin: 0;
-      position: relative;
       overflow: hidden;
+      color: #fff;
     }
 
-    /* Decorative background circles */
-    .circle {
+    /* Floating particles */
+    .particle {
       position: absolute;
       border-radius: 50%;
-      background: rgba(0, 123, 255, 0.08);
-      animation: float 12s infinite ease-in-out;
+      background: rgba(255, 215, 0, 0.08);
+      animation: float 15s infinite ease-in-out;
     }
-    .circle.small { width: 120px; height: 120px; top: 15%; left: 10%; }
-    .circle.medium { width: 220px; height: 220px; bottom: 10%; right: 15%; }
-    .circle.large { width: 350px; height: 350px; top: -120px; right: -120px; }
+    .particle:nth-child(1) { width: 100px; height: 100px; top: 10%; left: 15%; }
+    .particle:nth-child(2) { width: 150px; height: 150px; bottom: 15%; right: 20%; }
+    .particle:nth-child(3) { width: 80px; height: 80px; top: 50%; right: 10%; }
 
     @keyframes float {
-      0%, 100% { transform: translateY(0px); }
-      50% { transform: translateY(20px); }
+      0%, 100% { transform: translateY(0); }
+      50% { transform: translateY(25px); }
     }
 
-    form {
-      background: #ffffff;
-      padding: 40px 30px;
-      border-radius: 12px;
-      box-shadow: 0 6px 20px rgba(0,0,0,0.12);
-      width: 380px;
-      z-index: 10;
-      animation: fadeIn 0.8s ease-in-out;
+    /* Container */
+    .register-container {
+      position: relative;
+      max-width: 450px;
+      width: 100%;
+      padding: 50px 40px;
+      background: rgba(255, 255, 255, 0.12);
+      backdrop-filter: blur(12px);
+      border-radius: 20px;
+      box-shadow: 0 20px 40px rgba(0,0,0,0.25);
     }
 
     h2 {
+      font-size: 26px;
+      color: #ffd700;
       text-align: center;
-      color: #2c3e50;
-      margin-bottom: 8px;
-      font-size: 22px;
-      font-weight: 600;
+      margin-bottom: 10px;
     }
+
     .underline {
       width: 60px;
       height: 3px;
-      background: #007bff;
-      margin: 10px auto 25px;
+      background: #ffd700;
+      margin: 0 auto 25px;
       border-radius: 2px;
     }
 
     label {
       font-size: 14px;
       font-weight: 500;
-      color: #444;
+      color: rgba(255,255,255,0.9);
       display: block;
-      margin-top: 12px;
+      margin-top: 15px;
       margin-bottom: 5px;
-      text-align: left;
     }
 
     input {
       width: 100%;
-      padding: 12px 15px;
-      border: 1px solid #ccd1d9;
-      border-radius: 8px;
-      font-size: 14px;
+      padding: 14px 16px;
+      border: none;
+      border-radius: 10px;
+      background: rgba(255,255,255,0.15);
+      color: #fff;
+      font-size: 15px;
       outline: none;
-      background-color: #fff;
-      transition: 0.3s;
+      transition: all 0.3s;
+    }
+    input::placeholder {
+      color: rgba(255,255,255,0.7);
     }
     input:focus {
-      border-color: #007bff;
-      box-shadow: 0 0 6px rgba(0,123,255,0.2);
+      background: rgba(255,255,255,0.25);
+      box-shadow: 0 0 10px rgba(255, 215, 0, 0.4);
     }
 
     button {
       width: 100%;
-      padding: 12px;
+      padding: 14px;
       margin-top: 20px;
-      background: linear-gradient(to right, #007bff, #0056b3);
-      color: white;
-      font-size: 15px;
-      font-weight: 600;
+      background: linear-gradient(135deg, #ffd700, #ffa500);
+      color: #1e1e1e;
+      font-size: 16px;
+      font-weight: 700;
       border: none;
-      border-radius: 8px;
+      border-radius: 10px;
       cursor: pointer;
       transition: all 0.3s ease;
     }
     button:hover {
-      background: linear-gradient(to right, #0056b3, #004099);
+      background: linear-gradient(135deg, #ffbf00, #e69500);
       transform: translateY(-2px);
-      box-shadow: 0 4px 10px rgba(0,0,0,0.15);
+      box-shadow: 0 6px 16px rgba(255, 215, 0, 0.3);
     }
 
     .error {
-      color: #d9534f;
+      color: #ff6b6b;
       text-align: center;
       margin-bottom: 15px;
       font-size: 14px;
-      font-weight: 500;
     }
 
     p {
       text-align: center;
       margin-top: 20px;
-      font-size: 13px;
-      color: #555;
+      font-size: 14px;
+      color: rgba(255,255,255,0.8);
     }
     p a {
-      color: #007bff;
-      font-weight: 500;
+      color: #ffd700;
+      font-weight: 600;
       text-decoration: none;
     }
     p a:hover {
       text-decoration: underline;
     }
 
-    @keyframes fadeIn {
-      from { opacity: 0; transform: translateY(-10px); }
-      to { opacity: 1; transform: translateY(0); }
-    }
   </style>
 </head>
 <body>
-  <!-- Decorative background shapes -->
-  <div class="circle small"></div>
-  <div class="circle medium"></div>
-  <div class="circle large"></div>
 
-  <form method="POST" action="/index.php/register">
-    <h2>Create an Account</h2>
-    <div class="underline"></div>
+  <!-- Background particles -->
+  <div class="particle"></div>
+  <div class="particle"></div>
+  <div class="particle"></div>
 
-    <?php if (!empty($error)): ?>
-      <p class="error"><?= $error ?></p>
-    <?php endif; ?>
+  <div class="register-container">
+    <form method="POST" action="/index.php/register">
+      <h2>Create Account</h2>
+      <div class="underline"></div>
 
-    <label>Username:</label>
-    <input type="text" name="username" placeholder="Enter username" required>
+      <?php if (!empty($error)): ?>
+        <p class="error"><?= $error ?></p>
+      <?php endif; ?>
 
-    <label>Password:</label>
-    <input type="password" name="password" placeholder="Enter password" required>
+      <label>Username</label>
+      <input type="text" name="username" placeholder="Enter username" required>
 
-    <label>Confirm Password:</label>
-    <input type="password" name="confirm_password" placeholder="Re-enter password" required>
+      <label>Password</label>
+      <input type="password" name="password" placeholder="Enter password" required>
 
-    <button type="submit">Register</button>
+      <label>Confirm Password</label>
+      <input type="password" name="confirm_password" placeholder="Re-enter password" required>
 
-    <p>Already have an account? <a href="/index.php/login">Login here</a></p>
-  </form>
+      <button type="submit">Register</button>
+
+      <p>Already have an account? <a href="/index.php/login">Login here</a></p>
+    </form>
+  </div>
+
 </body>
 </html>

@@ -5,37 +5,54 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Update Student</title>
 <style>
+  * { margin:0; padding:0; box-sizing:border-box; font-family:'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; }
   body {
-    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-    background: linear-gradient(135deg, #74ebd5 0%, #ACB6E5 100%);
+    background: linear-gradient(135deg, #1e3c72, #2a5298);
+    min-height: 100vh;
     display: flex;
     justify-content: center;
     align-items: center;
-    height: 100vh;
-    margin: 0;
+    position: relative;
+    overflow: hidden;
+    color: #fff;
   }
 
+  /* Floating decorative circles */
+  .circle {
+    position: absolute;
+    border-radius: 50%;
+    background: rgba(255,215,0,0.08);
+    animation: float 12s infinite ease-in-out;
+  }
+  .circle.small { width: 100px; height: 100px; top: 10%; left: 10%; }
+  .circle.medium { width: 180px; height: 180px; bottom: 10%; right: 15%; }
+  .circle.large { width: 250px; height: 250px; top: -50px; right: -50px; }
+  @keyframes float { 0%,100%{transform:translateY(0);} 50%{transform:translateY(20px);} }
+
+  /* Form card */
   form {
-    background: #fff;
-    padding: 30px;
-    border-radius: 15px;
-    box-shadow: 0 8px 20px rgba(0,0,0,0.15);
+    background: rgba(255,255,255,0.12);
+    backdrop-filter: blur(12px);
+    border-radius: 20px;
+    padding: 40px 30px;
     width: 380px;
+    box-shadow: 0 8px 20px rgba(0,0,0,0.3);
     animation: fadeIn 0.8s ease-in-out;
   }
 
   h2 {
     text-align: center;
-    color: #4a4a4a;
-    margin-bottom: 20px;
     font-size: 24px;
+    font-weight: 700;
+    margin-bottom: 25px;
+    color: #ffd700;
   }
 
   label {
     display: block;
     margin-bottom: 6px;
     font-weight: 600;
-    color: #333;
+    color: #fff;
     font-size: 14px;
   }
 
@@ -45,63 +62,61 @@
     width: 100%;
     padding: 12px;
     margin-bottom: 15px;
-    border: 1px solid #ccc;
-    border-radius: 8px;
+    border: 1px solid rgba(255,255,255,0.3);
+    border-radius: 10px;
     font-size: 14px;
+    outline: none;
+    background: rgba(255,255,255,0.1);
+    color: #fff;
     transition: 0.3s;
   }
 
   input:focus {
-    border-color: #6a82fb;
-    box-shadow: 0 0 5px rgba(106,130,251,0.5);
-    outline: none;
+    border-color: #ffd700;
+    box-shadow: 0 0 8px rgba(255,215,0,0.5);
   }
 
   input[type="submit"] {
     width: 100%;
     padding: 12px;
-    background: #6a82fb;
-    color: white;
+    background: linear-gradient(135deg,#ffd700,#ffa500);
+    color: #1e1e1e;
     font-size: 16px;
-    font-weight: bold;
+    font-weight: 700;
     border: none;
-    border-radius: 8px;
+    border-radius: 10px;
     cursor: pointer;
     margin-top: 5px;
-    transition: 0.3s;
+    transition: all 0.3s ease;
+    box-shadow: 0 4px 12px rgba(0,0,0,0.2);
   }
 
   input[type="submit"]:hover {
-    background: #5a72e5;
+    background: linear-gradient(135deg,#ffbf00,#e69500);
     transform: translateY(-2px);
-    box-shadow: 0 6px 12px rgba(0,0,0,0.15);
+    box-shadow: 0 6px 14px rgba(0,0,0,0.3);
   }
 
   .error {
-    color: red;
+    color: #ff6b6b;
     margin-bottom: 15px;
     font-size: 14px;
   }
+  .error ul { padding-left:20px; }
 
-  .error ul {
-    margin: 0;
-    padding-left: 20px;
-  }
-
+  /* Profile preview */
   .profile-preview {
     text-align: center;
     margin-bottom: 15px;
   }
-
   .profile-preview img {
     border-radius: 50%;
-    border: 2px solid #6a82fb;
+    border: 2px solid #ffd700;
     width: 80px;
     height: 80px;
   }
-
   .profile-preview p {
-    color: #6a82fb;
+    color: #ffd700;
     font-size: 14px;
     margin-top: 5px;
   }
@@ -110,24 +125,20 @@
     margin-top: 20px;
     text-align: center;
   }
-
   .back-link {
     display: inline-block;
-    background-color: #f1f1f1;
-    color: #6a82fb;
+    background: rgba(255,255,255,0.2);
+    color: #ffd700;
     font-weight: 600;
     text-decoration: none;
     padding: 10px 18px;
-    border-radius: 8px;
-    box-shadow: 0 4px 8px rgba(0,0,0,0.1);
-    transition: all 0.3s ease-in-out;
+    border-radius: 10px;
+    transition: 0.3s;
   }
-
   .back-link:hover {
-    background-color: #6a82fb;
-    color: white;
+    background: #ffd700;
+    color: #1e1e1e;
     transform: translateY(-2px);
-    box-shadow: 0 6px 12px rgba(0,0,0,0.15);
   }
 
   @keyframes fadeIn {
@@ -137,6 +148,10 @@
 </style>
 </head>
 <body>
+
+<div class="circle small"></div>
+<div class="circle medium"></div>
+<div class="circle large"></div>
 
 <?php if (!empty($errors)): ?>
   <div class="error">
@@ -152,16 +167,13 @@
   <h2>Update Student</h2>
 
   <label for="first_name">First Name</label>
-  <input type="text" id="first_name" name="first_name" 
-         value="<?=$student['first_name'];?>" placeholder="Enter first name">
+  <input type="text" id="first_name" name="first_name" value="<?=$student['first_name'];?>" placeholder="Enter first name">
 
   <label for="last_name">Last Name</label>
-  <input type="text" id="last_name" name="last_name" 
-         value="<?=$student['last_name'];?>" placeholder="Enter last name">
+  <input type="text" id="last_name" name="last_name" value="<?=$student['last_name'];?>" placeholder="Enter last name">
 
   <label for="emails">Email</label>
-  <input type="email" id="emails" name="emails" 
-         value="<?=$student['emails'];?>" placeholder="you@example.com">
+  <input type="email" id="emails" name="emails" value="<?=$student['emails'];?>" placeholder="you@example.com">
 
   <!-- Current Profile Picture -->
   <?php if (!empty($student['profile_pic'])): ?>

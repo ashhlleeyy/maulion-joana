@@ -1,3 +1,4 @@
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -5,54 +6,56 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Update Student</title>
 <style>
-  * { margin:0; padding:0; box-sizing:border-box; font-family:'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; }
+  * { margin:0; padding:0; box-sizing:border-box; font-family:'Poppins', Arial, sans-serif; }
   body {
-    background: linear-gradient(135deg, #1e3c72, #2a5298);
+    background: linear-gradient(135deg, #f5ebe0, #e6ccb2);
     min-height: 100vh;
     display: flex;
     justify-content: center;
     align-items: center;
     position: relative;
     overflow: hidden;
-    color: #fff;
+    color: #4e342e;
   }
 
-  /* Floating decorative circles */
-  .circle {
+  /* Decorative blobs */
+  .blob {
     position: absolute;
     border-radius: 50%;
-    background: rgba(255,215,0,0.08);
+    background: rgba(121, 85, 72, 0.15);
+    filter: blur(40px);
     animation: float 12s infinite ease-in-out;
   }
-  .circle.small { width: 100px; height: 100px; top: 10%; left: 10%; }
-  .circle.medium { width: 180px; height: 180px; bottom: 10%; right: 15%; }
-  .circle.large { width: 250px; height: 250px; top: -50px; right: -50px; }
-  @keyframes float { 0%,100%{transform:translateY(0);} 50%{transform:translateY(20px);} }
+  .blob.one { width: 200px; height: 200px; top: -60px; left: -60px; }
+  .blob.two { width: 250px; height: 250px; bottom: -80px; right: -50px; }
+  @keyframes float { 
+    0%,100%{transform:translateY(0);} 
+    50%{transform:translateY(25px);} 
+  }
 
   /* Form card */
   form {
-    background: rgba(255,255,255,0.12);
-    backdrop-filter: blur(12px);
-    border-radius: 20px;
+    background: #fffaf5;
+    border-radius: 18px;
     padding: 40px 30px;
     width: 380px;
-    box-shadow: 0 8px 20px rgba(0,0,0,0.3);
+    box-shadow: 0 10px 25px rgba(78,52,46,0.2);
     animation: fadeIn 0.8s ease-in-out;
   }
 
   h2 {
     text-align: center;
-    font-size: 24px;
+    font-size: 26px;
     font-weight: 700;
     margin-bottom: 25px;
-    color: #ffd700;
+    color: #6d4c41;
   }
 
   label {
     display: block;
     margin-bottom: 6px;
     font-weight: 600;
-    color: #fff;
+    color: #5d4037;
     font-size: 14px;
   }
 
@@ -62,25 +65,25 @@
     width: 100%;
     padding: 12px;
     margin-bottom: 15px;
-    border: 1px solid rgba(255,255,255,0.3);
+    border: 1px solid #d7ccc8;
     border-radius: 10px;
     font-size: 14px;
     outline: none;
-    background: rgba(255,255,255,0.1);
-    color: #fff;
+    background: #fdf6f0;
+    color: #4e342e;
     transition: 0.3s;
   }
 
   input:focus {
-    border-color: #ffd700;
-    box-shadow: 0 0 8px rgba(255,215,0,0.5);
+    border-color: #a1887f;
+    box-shadow: 0 0 6px rgba(161,136,127,0.4);
   }
 
   input[type="submit"] {
     width: 100%;
     padding: 12px;
-    background: linear-gradient(135deg,#ffd700,#ffa500);
-    color: #1e1e1e;
+    background: linear-gradient(135deg, #d7ccc8, #a1887f);
+    color: #fff;
     font-size: 16px;
     font-weight: 700;
     border: none;
@@ -88,17 +91,17 @@
     cursor: pointer;
     margin-top: 5px;
     transition: all 0.3s ease;
-    box-shadow: 0 4px 12px rgba(0,0,0,0.2);
+    box-shadow: 0 4px 12px rgba(0,0,0,0.15);
   }
 
   input[type="submit"]:hover {
-    background: linear-gradient(135deg,#ffbf00,#e69500);
+    background: linear-gradient(135deg,#a1887f,#8d6e63);
     transform: translateY(-2px);
-    box-shadow: 0 6px 14px rgba(0,0,0,0.3);
+    box-shadow: 0 6px 14px rgba(0,0,0,0.25);
   }
 
   .error {
-    color: #ff6b6b;
+    color: #d32f2f;
     margin-bottom: 15px;
     font-size: 14px;
   }
@@ -111,12 +114,12 @@
   }
   .profile-preview img {
     border-radius: 50%;
-    border: 2px solid #ffd700;
+    border: 2px solid #a1887f;
     width: 80px;
     height: 80px;
   }
   .profile-preview p {
-    color: #ffd700;
+    color: #6d4c41;
     font-size: 14px;
     margin-top: 5px;
   }
@@ -127,8 +130,8 @@
   }
   .back-link {
     display: inline-block;
-    background: rgba(255,255,255,0.2);
-    color: #ffd700;
+    background: #efebe9;
+    color: #6d4c41;
     font-weight: 600;
     text-decoration: none;
     padding: 10px 18px;
@@ -136,8 +139,8 @@
     transition: 0.3s;
   }
   .back-link:hover {
-    background: #ffd700;
-    color: #1e1e1e;
+    background: #a1887f;
+    color: #fff;
     transform: translateY(-2px);
   }
 
@@ -149,9 +152,8 @@
 </head>
 <body>
 
-<div class="circle small"></div>
-<div class="circle medium"></div>
-<div class="circle large"></div>
+<div class="blob one"></div>
+<div class="blob two"></div>
 
 <?php if (!empty($errors)): ?>
   <div class="error">
@@ -174,14 +176,6 @@
 
   <label for="emails">Email</label>
   <input type="email" id="emails" name="emails" value="<?=$student['emails'];?>" placeholder="you@example.com">
-
-  <!-- Current Profile Picture -->
-  <?php if (!empty($student['profile_pic'])): ?>
-    <div class="profile-preview">
-      <img src="/upload/students/<?=$student['profile_pic'];?>" alt="Current Profile">
-      <p>Current Profile Picture</p>
-    </div>
-  <?php endif; ?>
 
   <label for="profile_pic">Change Profile Picture</label>
   <input type="file" id="profile_pic" name="profile_pic" accept="image/*">

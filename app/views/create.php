@@ -1,3 +1,4 @@
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -6,38 +7,38 @@
 <title>Add Student</title>
 <style>
   /* Base */
-  * { margin:0; padding:0; box-sizing:border-box; font-family:'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; }
+  * { margin:0; padding:0; box-sizing:border-box; font-family:'Poppins', sans-serif; }
   body {
-    background: linear-gradient(135deg, #1e3c72, #2a5298);
+    background: linear-gradient(135deg, #e9dac1, #c8b6a6);
     min-height: 100vh;
     display: flex;
     justify-content: center;
     align-items: center;
     position: relative;
     overflow: hidden;
-    color: #fff;
+    color: #5c4033;
   }
 
-  /* Decorative floating circles */
+  /* Decorative floating soft shapes */
   .circle {
     position: absolute;
     border-radius: 50%;
-    background: rgba(255,215,0,0.08);
+    background: rgba(92,64,51,0.07);
     animation: float 12s infinite ease-in-out;
   }
-  .circle.small { width: 100px; height: 100px; top: 10%; left: 10%; }
-  .circle.medium { width: 180px; height: 180px; bottom: 10%; right: 15%; }
-  .circle.large { width: 250px; height: 250px; top: -50px; right: -50px; }
-  @keyframes float { 0%,100%{transform:translateY(0);} 50%{transform:translateY(20px);} }
+  .circle.small { width: 90px; height: 90px; top: 12%; left: 8%; }
+  .circle.medium { width: 160px; height: 160px; bottom: 12%; right: 12%; }
+  .circle.large { width: 230px; height: 230px; top: -50px; right: -60px; }
+  @keyframes float { 0%,100%{transform:translateY(0);} 50%{transform:translateY(18px);} }
 
   /* Form card */
   form {
-    background: rgba(255,255,255,0.12);
-    backdrop-filter: blur(12px);
+    background: rgba(255,255,255,0.7);
+    backdrop-filter: blur(14px);
     border-radius: 20px;
     padding: 40px 30px;
     width: 380px;
-    box-shadow: 0 8px 20px rgba(0,0,0,0.3);
+    box-shadow: 0 8px 20px rgba(92,64,51,0.25);
     animation: fadeIn 0.8s ease-in-out;
   }
 
@@ -46,14 +47,14 @@
     font-size: 24px;
     font-weight: 700;
     margin-bottom: 25px;
-    color: #ffd700;
+    color: #5c4033;
   }
 
   label {
     display: block;
     margin-bottom: 6px;
     font-weight: 600;
-    color: #fff;
+    color: #4a3629;
     font-size: 14px;
   }
 
@@ -63,25 +64,25 @@
     width: 100%;
     padding: 12px;
     margin-bottom: 15px;
-    border: 1px solid rgba(255,255,255,0.3);
+    border: 1px solid rgba(92,64,51,0.3);
     border-radius: 10px;
     font-size: 14px;
     outline: none;
-    background: rgba(255,255,255,0.1);
-    color: #fff;
+    background: rgba(255,255,255,0.6);
+    color: #3d2b1f;
     transition: 0.3s;
   }
 
   input:focus {
-    border-color: #ffd700;
-    box-shadow: 0 0 8px rgba(255,215,0,0.5);
+    border-color: #a27b5c;
+    box-shadow: 0 0 8px rgba(162,123,92,0.5);
   }
 
   input[type="submit"] {
     width: 100%;
     padding: 12px;
-    background: linear-gradient(135deg,#ffd700,#ffa500);
-    color: #1e1e1e;
+    background: linear-gradient(135deg,#d5b895,#a27b5c);
+    color: #fff;
     font-size: 16px;
     font-weight: 700;
     border: none;
@@ -89,17 +90,17 @@
     cursor: pointer;
     margin-top: 5px;
     transition: all 0.3s ease;
-    box-shadow: 0 4px 12px rgba(0,0,0,0.2);
+    box-shadow: 0 4px 12px rgba(92,64,51,0.25);
   }
 
   input[type="submit"]:hover {
-    background: linear-gradient(135deg,#ffbf00,#e69500);
+    background: linear-gradient(135deg,#b08968,#7f5539);
     transform: translateY(-2px);
-    box-shadow: 0 6px 14px rgba(0,0,0,0.3);
+    box-shadow: 0 6px 14px rgba(92,64,51,0.3);
   }
 
   .error {
-    color: #ff6b6b;
+    color: #b23b3b;
     margin-bottom: 15px;
     font-size: 14px;
   }
@@ -112,8 +113,8 @@
 
   .back-link {
     display: inline-block;
-    background: rgba(255,255,255,0.2);
-    color: #ffd700;
+    background: rgba(162,123,92,0.2);
+    color: #5c4033;
     font-weight: 600;
     text-decoration: none;
     padding: 10px 18px;
@@ -122,8 +123,8 @@
   }
 
   .back-link:hover {
-    background: #ffd700;
-    color: #1e1e1e;
+    background: #a27b5c;
+    color: #fff;
     transform: translateY(-2px);
   }
 
@@ -131,7 +132,6 @@
     from { opacity: 0; transform: translateY(20px); }
     to { opacity: 1; transform: translateY(0); }
   }
-
 </style>
 </head>
 <body>
@@ -174,3 +174,4 @@
 
 </body>
 </html>
+

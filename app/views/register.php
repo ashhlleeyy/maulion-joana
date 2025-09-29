@@ -1,3 +1,4 @@
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -9,50 +10,34 @@
       margin: 0;
       padding: 0;
       box-sizing: border-box;
-      font-family: 'Inter', Arial, sans-serif;
+      font-family: 'Poppins', Arial, sans-serif;
     }
 
     body {
-      background: linear-gradient(135deg, #1e3c72, #2a5298);
+      background: linear-gradient(135deg, #f5e6d3, #d6bfa7);
       display: flex;
       justify-content: center;
       align-items: center;
       height: 100vh;
       overflow: hidden;
-      color: #fff;
-    }
-
-    /* Floating particles */
-    .particle {
-      position: absolute;
-      border-radius: 50%;
-      background: rgba(255, 215, 0, 0.08);
-      animation: float 15s infinite ease-in-out;
-    }
-    .particle:nth-child(1) { width: 100px; height: 100px; top: 10%; left: 15%; }
-    .particle:nth-child(2) { width: 150px; height: 150px; bottom: 15%; right: 20%; }
-    .particle:nth-child(3) { width: 80px; height: 80px; top: 50%; right: 10%; }
-
-    @keyframes float {
-      0%, 100% { transform: translateY(0); }
-      50% { transform: translateY(25px); }
+      color: #4b3832;
     }
 
     /* Container */
     .register-container {
       position: relative;
-      max-width: 450px;
+      max-width: 460px;
       width: 100%;
-      padding: 50px 40px;
-      background: rgba(255, 255, 255, 0.12);
+      padding: 45px 35px;
+      background: rgba(255, 255, 255, 0.85);
       backdrop-filter: blur(12px);
-      border-radius: 20px;
-      box-shadow: 0 20px 40px rgba(0,0,0,0.25);
+      border-radius: 18px;
+      box-shadow: 0 12px 32px rgba(0,0,0,0.15);
     }
 
     h2 {
       font-size: 26px;
-      color: #ffd700;
+      color: #6e4b3a;
       text-align: center;
       margin-bottom: 10px;
     }
@@ -60,60 +45,61 @@
     .underline {
       width: 60px;
       height: 3px;
-      background: #ffd700;
+      background: #a9826d;
       margin: 0 auto 25px;
       border-radius: 2px;
     }
 
     label {
       font-size: 14px;
-      font-weight: 500;
-      color: rgba(255,255,255,0.9);
+      font-weight: 600;
+      color: #6e4b3a;
       display: block;
       margin-top: 15px;
-      margin-bottom: 5px;
+      margin-bottom: 6px;
     }
 
     input {
       width: 100%;
       padding: 14px 16px;
-      border: none;
+      border: 1px solid #cbbeb5;
       border-radius: 10px;
-      background: rgba(255,255,255,0.15);
-      color: #fff;
+      background: #fdfaf6;
+      color: #4b3832;
       font-size: 15px;
       outline: none;
       transition: all 0.3s;
     }
     input::placeholder {
-      color: rgba(255,255,255,0.7);
+      color: #9a8578;
     }
     input:focus {
-      background: rgba(255,255,255,0.25);
-      box-shadow: 0 0 10px rgba(255, 215, 0, 0.4);
+      background: #fff;
+      border-color: #a9826d;
+      box-shadow: 0 0 8px rgba(169, 130, 109, 0.3);
     }
 
     button {
       width: 100%;
       padding: 14px;
-      margin-top: 20px;
-      background: linear-gradient(135deg, #ffd700, #ffa500);
-      color: #1e1e1e;
+      margin-top: 22px;
+      background: linear-gradient(135deg, #a9826d, #c7a27c);
+      color: #fff;
       font-size: 16px;
-      font-weight: 700;
+      font-weight: 600;
       border: none;
       border-radius: 10px;
       cursor: pointer;
       transition: all 0.3s ease;
     }
     button:hover {
-      background: linear-gradient(135deg, #ffbf00, #e69500);
+      background: linear-gradient(135deg, #8c6a55, #b89478);
       transform: translateY(-2px);
-      box-shadow: 0 6px 16px rgba(255, 215, 0, 0.3);
+      box-shadow: 0 6px 14px rgba(169, 130, 109, 0.3);
     }
 
     .error {
-      color: #ff6b6b;
+      color: #d9534f;
       text-align: center;
       margin-bottom: 15px;
       font-size: 14px;
@@ -123,10 +109,10 @@
       text-align: center;
       margin-top: 20px;
       font-size: 14px;
-      color: rgba(255,255,255,0.8);
+      color: #6e4b3a;
     }
     p a {
-      color: #ffd700;
+      color: #8c6a55;
       font-weight: 600;
       text-decoration: none;
     }
@@ -137,11 +123,6 @@
   </style>
 </head>
 <body>
-
-  <!-- Background particles -->
-  <div class="particle"></div>
-  <div class="particle"></div>
-  <div class="particle"></div>
 
   <div class="register-container">
     <form method="POST" action="/index.php/register">

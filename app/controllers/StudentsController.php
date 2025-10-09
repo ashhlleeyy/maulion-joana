@@ -204,42 +204,34 @@ public function search()
 
     if (!empty($results)) {
         foreach ($results as $row) {
-            echo '<tr style="background: rgba(255,255,255,0.12); border-radius: 20px; box-shadow: 0 4px 12px rgba(0,0,0,0.2);">';
-
-            // Profile picture
-            echo '<td style="padding: 14px; text-align:center;">';
+            echo '
+            <tr class="student-row">
+                <td class="profile-pic">';
+            // ✅ Profile picture check
             if (!empty($row['profile_pic'])) {
                 echo '<img src="/upload/students/' . htmlspecialchars($row['profile_pic']) . '" 
-                          alt="Profile" width="60" height="60" style="border-radius:50%; border:2px solid rgba(255,215,0,0.3);">';
+                          alt="Profile" width="60" height="60" class="profile-img">';
             } else {
                 echo '<img src="/upload/default.png" 
-                          alt="No Profile" width="60" height="60" style="border-radius:50%; border:2px solid rgba(255,215,0,0.3);">';
+                          alt="No Profile" width="60" height="60" class="profile-img">';
             }
-            echo '</td>';
-
-            echo '<td style="text-align:center; font-weight:600; color:#ffd700;">' . htmlspecialchars($row['id']) . '</td>';
-            echo '<td style="text-align:center; color:#fff;">' . htmlspecialchars($row['first_name']) . '</td>';
-            echo '<td style="text-align:center; color:#fff;">' . htmlspecialchars($row['last_name']) . '</td>';
-            echo '<td style="text-align:center; color:#fff;">' . htmlspecialchars($row['emails']) . '</td>';
-
-            // Action buttons
-            echo '<td style="text-align:center;">';
-            echo '<a href="' . site_url('/update/'.$row['id']) . '" 
-                     class="btn update" style="background:#6c63ff; padding:6px 14px; border-radius:8px; color:#fff; text-decoration:none; margin:2px;"> Update</a>';
-            echo '<a href="' . site_url('/delete/'.$row['id']) . '" 
-                     class="btn delete" 
-                     style="background:#ff6b6b; padding:6px 14px; border-radius:8px; color:#fff; text-decoration:none; margin:2px;"
-                     onclick="return confirm(\'Are you sure you want to delete this record?\');"> Delete</a>';
-            echo '</td>';
-
-            echo '</tr>';
+            echo '</td>
+                <td>' . htmlspecialchars($row['id']) . '</td>
+                <td>' . htmlspecialchars($row['first_name']) . '</td>
+                <td>' . htmlspecialchars($row['last_name']) . '</td>
+                <td>' . htmlspecialchars($row['emails']) . '</td>
+                <td class="actions">
+                    <a href="' . site_url('/update/'.$row['id']) . '" class="btn update"> Update</a>
+                    <a href="' . site_url('/delete/'.$row['id']) . '" 
+                       class="btn delete"
+                       onclick="return confirm(\'Are you sure you want to delete this record?\');">
+                        Delete
+                    </a>
+                </td>
+            </tr>';
         }
     } else {
-        echo '<tr>
-                <td colspan="6" style="text-align:center; padding:14px; color:#ffd700;">
-                    No results found
-                </td>
-              </tr>';
+        echo "<tr><td colspan='6' class='no-results'>No results found</td></tr>";
     }
 }
 
